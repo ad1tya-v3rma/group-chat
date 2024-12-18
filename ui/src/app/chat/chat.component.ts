@@ -1,5 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {io, Socket} from "socket.io-client";
+import {ChatService} from "../service/chat.service";
 
 @Component({
   selector: 'app-chat',
@@ -10,17 +11,15 @@ export class ChatComponent implements OnInit{
 
   socket: Socket | undefined;
   messages: string[] = [];
-  message : String =''
-  constructor() {
+  message : String ='';
+  @Input()//@ts-ignore
+  room : String
+  constructor(private chatService : ChatService) {
 
   }
   ngOnInit()
   {
-    this.socket = io('localhost:3000')
-    this.socket.on('message', (msg) => {
-        this.messages.push(msg);
-      }
-    )
+    this.chatService.joinRoom(this.room)
   }
 
   joinRoom(): void {
@@ -30,6 +29,7 @@ export class ChatComponent implements OnInit{
   }
 
   sendMessage(): void {
+
     if (this.message) {
       // @ts-ignore
       this.socket.emit('message', { message: this.message, room: 'room1' });
