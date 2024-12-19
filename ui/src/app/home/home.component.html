@@ -1,23 +1,37 @@
 <section>
-  <div class="option-container">
+  <div #options class="option-container" [style.pointer-events]="isDisabled ? 'none' : 'auto'" [style.filter]="isDisabled ? 'blur(8px)' : 'blur(0)'">
     <button class="option" (click)='toggle("create")'>create</button>
     <button class="option" (click)='toggle("join")'>join</button>
     <button class="option" (click)='toggle("check")'>check</button>
   </div>
 
-  <div *ngIf = "active == 'create'" class='room-modal'>
-    <input type="text" [(ngModel)]="param">
-    <button (click)=createRoom()>create room</button>
+  <div *ngIf="active == 'create'" class='dialog'>
+    <div class="dialog-action">
+      <button class="close-btn" (click)="close()">X</button>
+    </div>
+    <div class="dialog-body">
+      <input type="text" [(ngModel)]="param">
+      <button (click)=createRoom()>create room</button>
+    </div>
   </div>
-  <div *ngIf = "active == 'join'" class='room-modal'>
-    <input type="text" [(ngModel)]="param">
-    <button (click)=joinRoom()>join</button>
+  <div *ngIf="active == 'join'" class='dialog'>
+    <div class="dialog-action">
+      <button class="close-btn" (click)="close()">X</button>
+    </div>
+    <div class="dialog-body">
+      <input type="text" [(ngModel)]="param">
+      <button (click)=joinRoom()>join</button>
+    </div>
   </div>
-  <div *ngIf = "active == 'check'" class='room-modal'>
-    <input type="text" [(ngModel)]="param">
-    <button (click)=check()>check</button>
+  <div *ngIf="active == 'check'" class='dialog'>
+    <div class="dialog-action">
+      <button class="close-btn" (click)="close()">X</button>
+    </div>
+    <div class="dialog-body">
+      <input type="text" [(ngModel)]="param">
+      <button (click)=check()>check</button>
+    </div>
   </div>
-
   <div *ngIf="result !== ''" class="result">
     <h1>{{result}}</h1>
   </div>

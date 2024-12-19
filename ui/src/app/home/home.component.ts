@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, ElementRef, QueryList, ViewChild, ViewChildren} from '@angular/core';
 import {ChatService} from "../service/chat.service";
 import {Router} from "@angular/router";
 
@@ -12,6 +12,13 @@ export class HomeComponent {
   active : string ='';
   result: string ='';
 
+  @ViewChild('options')
+  option! : ElementRef
+
+  @ViewChildren('dialog')
+  dialog! : QueryList<ElementRef>
+  isDisabled: boolean = false;
+
   constructor(private chatService : ChatService, private router : Router) {
   }
   joinRoom(): void {
@@ -21,6 +28,7 @@ export class HomeComponent {
 
   toggle(modal: string) {
     this.active = modal;
+    this.isDisabled = !this.isDisabled
   }
 
   async createRoom() {
@@ -30,4 +38,12 @@ export class HomeComponent {
   async check() {
     this.result = await this.chatService.check(this.param).then(response => {return response.message})
   }
+
+  close()
+  {
+    this.active = '';
+    this.isDisabled = !this.isDisabled
+    this.result = '';
+  }
+
 }

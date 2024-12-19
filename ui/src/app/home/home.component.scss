@@ -6,32 +6,98 @@ section
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 2s ease-in-out;
 }
 
 .option-container{
   background: rgba(45, 43, 43, 1);
-  border: 2px solid rgba(244, 244, 0, 0.93);
-  border-radius: 10px;
+  border: 5px solid rgba(244, 244, 0, 0.93);
+  border-radius: 15px;
   height: 500px;
   width: 700px;
   display: flex;
   align-items: center;
   justify-content: space-around;
+  transition: filter 0.2s ease-in-out;
+
 }
 
 .option
 {
   background: rgba(45, 43, 43, 1);
-  border: 2px solid rgba(244, 244, 0, 0.93);
+  border: 5px solid rgba(244, 244, 0, 0.93);
   border-radius: 5px;
   font-size: 50px;
   color: rgba(244, 244, 0, 0.93);
-  width: 150px;
+  width: 200px;
   text-align: center;
   cursor: pointer;
 }
 
-.room-modal
+.dialog
 {
   position: absolute;
+  height: 200px;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  background: rgba(45, 43, 43, 1);
+  border: 2px solid rgba(244, 244, 0, 0.93);
+  border-radius: 5px;
+}
+
+.dialog-action
+{
+  display: block;
+  height: 20px;
+  width: 100%;
+}
+
+.close-btn
+{
+  float: right;
+  outline: none;
+  color: rgba(45, 43, 43, 1);
+  background: rgba(244, 244, 0, 0.93);
+  border: 0;
+  border-radius: 0px 2px 0 0;
+  margin: 0;
+  font-weight: 800;
+}
+
+.dialog-body
+{
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+input
+{
+  outline: none;
+  text-align: center;
+  border:2px dashed rgba(244, 244, 0, 0.93);
+  border-radius: 5px 0 0 5px;
+  color: rgba(244, 244, 0, 0.93);
+  background: rgba(45, 43, 43, 1);
+  font-size: larger;
+  border-right : none;
+}
+.dialog-body>button
+{
+  outline: none;
+  background: rgba(244, 244, 0, 0.93);
+  color: rgba(45, 43, 43, 1);
+  font-size: larger;
+  border: 2px solid rgba(244, 244, 0, 0.93);
+  border-radius: 0 5px 5px 0;
+}
+
+.result
+{
+  position: absolute;
+  top: 0;
+  color: rgba(244, 244, 0, 0.93);
+  background: rgba(45, 43, 43, 1);
 }
