@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap');
+
+section {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: rgba(45, 43, 43, 1);
+  color: rgba(244, 244, 0, 0.93);
+}
+
+.heading {
+  font-size: 200px;
+  text-transform: uppercase;
+  background: url("/assets/background.jpg") no-repeat center center;
+  background-size: cover;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+input {
+  border: none;
+  outline: none;
+  text-align: center;
+  height: 50px;
+  margin: 5px;
+  background: transparent;
+  border-radius: 5px;
+  border: 2px solid rgba(244, 244, 0, 0.93);
+  color: rgba(244, 244, 0, 0.93);
+  font-size: 20px;
+}
+
+.noto-sans-jp-900 {
+  font-family: "Noto Sans JP", serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.noto-sans-jp-400 {
+  font-family: "Noto Sans JP", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.form-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+label{
+  font-size: 50px;
+}
+
+.input{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+}
+
+button{
+  outline: none;
+  border: none;
+  background: rgba(244, 244, 0, 0.93);
+  font-size: 30px;
+  width: 100px;
+  border-radius: 5px;
+}

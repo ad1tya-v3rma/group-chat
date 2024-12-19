@@ -1,8 +1,8 @@
 <section>
   <div class="option-container">
-    <button (click)='ops("create"); toggle("create")'>create</button>
-    <button (click)='ops("join") ;toggle("join")'>join</button>
-    <button (click)='toggle("check")'>check</button>
+    <button class="option" (click)='toggle("create")'>create</button>
+    <button class="option" (click)='toggle("join")'>join</button>
+    <button class="option" (click)='toggle("check")'>check</button>
   </div>
 
   <div *ngIf = "active == 'create'" class='room-modal'>

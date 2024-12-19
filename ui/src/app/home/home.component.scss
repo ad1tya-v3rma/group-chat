@@ -1,0 +1,37 @@
+section
+{
+  background: rgba(45, 43, 43, 1);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.option-container{
+  background: rgba(45, 43, 43, 1);
+  border: 2px solid rgba(244, 244, 0, 0.93);
+  border-radius: 10px;
+  height: 500px;
+  width: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.option
+{
+  background: rgba(45, 43, 43, 1);
+  border: 2px solid rgba(244, 244, 0, 0.93);
+  border-radius: 5px;
+  font-size: 50px;
+  color: rgba(244, 244, 0, 0.93);
+  width: 150px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.room-modal
+{
+  position: absolute;
+}

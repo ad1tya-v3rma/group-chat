@@ -8,34 +8,18 @@ import {Router} from "@angular/router";
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
-  param: String='';
-  active : String ='';
+  param: string='';
+  active : string ='';
   result: string ='';
 
   constructor(private chatService : ChatService, private router : Router) {
   }
-
-  async ops(param: string) {
-    if (param === 'check') {
-      let result = await fetch('localhost:3000/check',
-        {
-          headers:
-            {
-              'cors': '*',
-
-            },
-          body: JSON.stringify('')
-        }
-      )
-    }
-  }
-
   joinRoom(): void {
-    this.router.navigate(['room', this.param])
+    this.router.navigate(['chat', this.param])
     // @ts-ignore
   }
 
-  toggle(modal: String) {
+  toggle(modal: string) {
     this.active = modal;
   }
 
@@ -45,6 +29,5 @@ export class HomeComponent {
 
   async check() {
     this.result = await this.chatService.check(this.param).then(response => {return response.message})
-
   }
 }
