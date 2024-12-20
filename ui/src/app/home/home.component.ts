@@ -2,7 +2,6 @@ import {Component, ElementRef, QueryList, ViewChild, ViewChildren} from '@angula
 import {ChatService} from "../service/chat.service";
 import {Router} from "@angular/router";
 import {animate, style, transition, trigger} from "@angular/animations";
-import {join} from "@angular/compiler-cli";
 
 @Component({
   selector: 'app-home',
@@ -59,5 +58,4 @@ export class HomeComponent {
     this.result = '';
   }
 
-  protected readonly join = join;
 }

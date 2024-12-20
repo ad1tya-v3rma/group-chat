@@ -68,6 +68,8 @@ section {
 .message-container {
   height: 540px;
   overflow: auto;
+  display: flex;
+  flex-direction : column;
 }
 
 .action-container {
@@ -106,11 +108,13 @@ button
   background: crimson;
   color: white;
   width: max-content;
-  float: right;
 }
 
-.received .sent
+.received, .sent
 {
+  font-size: large;
+  max-width: 50%;
+  border-radius: 5px;
 }
 
 .message{
