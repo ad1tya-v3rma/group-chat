@@ -1,11 +1,24 @@
 import {Component, ElementRef, QueryList, ViewChild, ViewChildren} from '@angular/core';
 import {ChatService} from "../service/chat.service";
 import {Router} from "@angular/router";
+import {animate, style, transition, trigger} from "@angular/animations";
+import {join} from "@angular/compiler-cli";
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  animations : [
+    trigger('fadeInOut', [
+      transition(':enter', [
+        style({ opacity: 0 }),
+        animate('200ms 0s', style({ opacity: 1 }))
+      ]),
+      transition(':leave', [
+        animate('200ms 0s', style({ opacity: 0 }))
+      ])
+    ])
+  ]
 })
 export class HomeComponent {
   param: string='';
@@ -46,4 +59,5 @@ export class HomeComponent {
     this.result = '';
   }
 
+  protected readonly join = join;
 }

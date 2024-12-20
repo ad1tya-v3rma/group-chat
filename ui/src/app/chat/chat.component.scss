@@ -5,8 +5,7 @@
   src: url(https://fonts.gstatic.com/icon/font?kit=kJF1BvYX7BgnkSrUwT8OhrdQw4oELdPIeeII9v6oDMzByHX9rA6RzaxHMPdY43zj-jCxv3fzvRNU22ZXGJpEpjC_1v-p_4MrImHCIJIZrDCvHOejHdwXw0dDrKE&skey=b8dc2088854b122f&v=v222) format('woff2');
 }
 
-section
-{
+section {
   background: rgba(5, 88, 30, 0.92);
   height: 100%;
   width: 100%;
@@ -30,28 +29,91 @@ section
   direction: ltr;
   -webkit-font-feature-settings: 'liga';
   -webkit-font-smoothing: antialiased;
-  color: white;
   background: transparent;
   outline: none;
   border: none;
   float: right;
 }
 
-.chatbox
-{
+.green{
+  color: rgba(5, 88, 30, 0.92);
+
+}
+
+.white{
+  color: white;
+}
+.chatbox {
   height: 600px;
   width: 400px;
   border-radius: 5px;
   border: 2px solid white;
 }
 
-.heading{
+.heading {
   width: 100%;
   height: 30px;
+  color: rgba(5, 88, 30, 0.92);
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-items: center;
 }
 
-.message-container
+.heading-text
+{
+  width: 400px;
+}
+
+.message-container {
+  height: 540px;
+  overflow: auto;
+}
+
+.action-container {
+  height: 20px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.action {
+  width: 100%;
+}
+input{
+  height: 20px;
+  outline: none;
+  border: 2px solid white;
+  border-radius: 2px;
+  text-align: center;
+  width: 350px;
+}
+
+button
+{
+  background: white;
+}
+
+.received
+{
+  background: white;
+  color: rgba(5, 88, 30, 0.92);
+  width: max-content;
+}
+
+.sent{
+  background: crimson;
+  color: white;
+  width: max-content;
+  float: right;
+}
+
+.received .sent
 {
 }
 
-
+.message{
+  width: 100%;
+  height: 20px;
+}

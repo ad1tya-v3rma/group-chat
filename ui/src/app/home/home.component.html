@@ -5,30 +5,30 @@
     <button class="option" (click)='toggle("check")'>check</button>
   </div>
 
-  <div *ngIf="active == 'create'" class='dialog'>
+  <div *ngIf="active == 'create'" [@fadeInOut] class='dialog'>
     <div class="dialog-action">
       <button class="close-btn" (click)="close()">X</button>
     </div>
     <div class="dialog-body">
-      <input type="text" [(ngModel)]="param">
+      <input type="text" [(ngModel)]="param" (keydown.enter)="createRoom()" >
       <button (click)=createRoom()>create room</button>
     </div>
   </div>
-  <div *ngIf="active == 'join'" class='dialog'>
+  <div *ngIf="active == 'join'" [@fadeInOut] class='dialog'>
     <div class="dialog-action">
       <button class="close-btn" (click)="close()">X</button>
     </div>
     <div class="dialog-body">
-      <input type="text" [(ngModel)]="param">
+      <input type="text" [(ngModel)]="param" (keydown.enter)="joinRoom()">
       <button (click)=joinRoom()>join</button>
     </div>
   </div>
-  <div *ngIf="active == 'check'" class='dialog'>
+  <div *ngIf="active == 'check'" [@fadeInOut] class='dialog'>
     <div class="dialog-action">
       <button class="close-btn" (click)="close()">X</button>
     </div>
     <div class="dialog-body">
-      <input type="text" [(ngModel)]="param">
+      <input type="text" [(ngModel)]="param" (keydown.enter)="check()">
       <button (click)=check()>check</button>
     </div>
   </div>

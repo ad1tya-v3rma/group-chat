@@ -20,6 +20,10 @@ export class ChatService {
     this.socket.emit('message', {message: messageComponent.message, room: messageComponent.room})
   }
 
+  exit(room:string | null)
+  {
+    this.socket.emit('leaveRoom', room);
+  }
 
   async check(room: String) {
     try {

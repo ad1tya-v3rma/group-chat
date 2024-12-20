@@ -33,9 +33,16 @@ const socket = io.on('connection', (socket) => {
         socket.on('joinRoom', (room) => {
                 socket.join(room);
                 console.log(`User joined room: ${room}`);
-                socket.to(room).emit('message', 'A new user has joined the room');
+                socket.to(room).emit('message', `A new user has joined the room : ${room}`);
             }
         );
+        socket.on('leaveRoom', (room) => {
+            socket.leave(room)
+            socket.to(room).emit('message', `A user has disconnected from the room : ${room}`)
+        });
+        socket.on('logout', ()=>
+        socket.disconnect(true)
+        )
     }
 )
 
