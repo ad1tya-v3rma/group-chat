@@ -6,13 +6,22 @@
 }
 
 section {
-  background: rgba(5, 88, 30, 0.92);
+  background: rgba(45, 43, 43, 1);
   height: 100%;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+}
+.info-container
+{
+  height: 20vh;
+  width: 100%;
+  font-size: xx-large;
+}
+.info{
+  color: white;
 }
 
 .material-symbols-outlined {
@@ -40,14 +49,19 @@ section {
 
 }
 
-.white{
-  color: white;
+.chatbox-container{
+  height: 80vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
+
 .chatbox {
   height: 600px;
   width: 400px;
   border-radius: 5px;
   border: 2px solid white;
+  background: white;
 }
 
 .heading {
@@ -71,6 +85,7 @@ section {
   display: flex;
   flex-direction : column;
   margin: 5px 0 5px 0;
+  background: rgba(168, 197, 220, 0.95);
 }
 
 .action-container {
@@ -99,14 +114,14 @@ button
 
 .received
 {
-  background: white;
-  color: rgba(5, 88, 30, 0.92);
+  background: purple;
+  color: white;
   width: max-content;
 }
 
 .sent{
-  background: crimson;
-  color: white;
+  background: white;
+  color: crimson;
   width: max-content;
   float: right;
 }
@@ -125,7 +140,7 @@ button
   width: 100%;
   text-align: center;
   font-style: italic;
-  color: white;
+  color: purple;
 }
 
 .message{

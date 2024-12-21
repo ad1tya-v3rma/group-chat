@@ -1,11 +1,21 @@
 <section>
-
-  <div class="chatbox">
-    <div class="heading">
-      <span class="heading-text">Room id : {{ room }}</span>
-      <button class="material-symbols-outlined green" (click) = exitChat()>logout</button>
+  <div class="info-container">
+    <div class="info">
+      <div>
+        <span>Logged in as : </span> {{username}}
+      </div>
+      <div>
+        <span>Room name : </span> {{room}}
+      </div>
     </div>
-    <div #msgContainer class="message-container">
+  </div>
+  <div class="chatbox-container">
+    <div class="chatbox">
+      <div class="heading">
+        <span class="heading-text"> {{ room }}</span>
+        <button class="material-symbols-outlined green" (click)=exitChat()>logout</button>
+      </div>
+      <div #msgContainer class="message-container">
         <div class="message" *ngFor="let message of messages">
           <div class="received" *ngIf="message.status === 'r'">
             <span class="message-user">{{message.user}}</span>
@@ -14,12 +24,14 @@
           <div class="sent" *ngIf="message.status === 's'">{{ message.message }}</div>
           <div class="update" *ngIf="message.status === 'u'">{{message.message}}</div>
         </div>
-    </div>
-    <div class="action-container">
+      </div>
+      <div class="action-container">
 
-      <input type="text" id="message" [(ngModel)]="message" placeholder="message goes here..." (keydown.enter)="sendMessage()">
-      <button class="material-symbols-outlined white" (click)=sendMessage()>send</button>
+        <input type="text" id="message" [(ngModel)]="message" placeholder="message goes here..."
+               autocomplete="off" (keydown.enter)="sendMessage()">
+        <button class="material-symbols-outlined green" (click)=sendMessage()>send</button>
 
+      </div>
     </div>
   </div>
 </section>

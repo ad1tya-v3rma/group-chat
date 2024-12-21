@@ -9,7 +9,7 @@ import {Router} from "@angular/router";
 export class LoginComponent {
   userName!: string;
 
-  constructor(private router : Router)
+  constructor(private readonly router : Router)
   {
 
   }
