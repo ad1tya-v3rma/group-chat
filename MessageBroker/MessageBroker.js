@@ -24,31 +24,35 @@ const socket = io.on('connection', (socket) => {
         socket.on('message', (data) => {
                 let roomName = data.room
                 let message = data.message
+                let user = data.user
+                let status = data.status
                 console.log(data)
-                io.to(roomName, message)
-                socket.to(roomName).emit('message', message)
+                socket.to(roomName).emit('message', {message: message, user: user})
                 //io.emit(roomName, message)
             }
         )
-        socket.on('joinRoom', (room) => {
-                socket.join(room);
-                console.log(`User joined room: ${room}`);
-                socket.to(room).emit('message', `A new user has joined the room : ${room}`);
+        socket.on('joinRoom', (info) => {
+                socket.join(info._room);
+                console.log(`${info._username} joined room: ${info._room}`);
+                socket.to(info._room).emit('message', {message: `${info._username} joined`, status: 'u'});
             }
         );
-        socket.on('leaveRoom', (room) => {
-            socket.leave(room)
-            socket.to(room).emit('message', `A user has disconnected from the room : ${room}`)
+        socket.on('leaveRoom', (info) => {
+            socket.leave(info._room)
+            socket.to(info._room).emit('message', {
+                message: `${info._username} has disconnected from the room : ${info._room}`,
+                status: 'u'
+            })
         });
-        socket.on('logout', ()=>
-        socket.disconnect(true)
+        socket.on('logout', () =>
+            socket.disconnect(true)
         )
     }
 )
 
 app.post('/check', (req, res) => {
         let data = req.body
-        if (!data || data.room ==='') {
+        if (!data || data.room === '') {
             return res.status(400).json({success: false, message: 'room name is required'})
         }
 
@@ -64,7 +68,7 @@ app.post('/check', (req, res) => {
 app.post('/create', (req, res) => {
         let data = req.body
         if (!data) {
-            return res.status(400).json({success : false, message : 'room name is required'})
+            return res.status(400).json({success: false, message: 'room name is required'})
         }
 
         console.log(data)
@@ -72,10 +76,10 @@ app.post('/create', (req, res) => {
         if (!roomList.includes(data.room)) {
             roomList.push(data.room)
         } else {
-            return res.status(403).json({success : false, message :'room already exists'})
+            return res.status(403).json({success: false, message: 'room already exists'})
         }
 
-        return res.status(200).json({success : true, message : 'room created successfully'})
+        return res.status(200).json({success: true, message: 'room created successfully'})
     }
 )
 app.post('/connect', (req, res) => {

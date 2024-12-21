@@ -1,15 +1,19 @@
 export class Chat {
-  message: String;
-  room: String;
-  status: String
+  message: string;
+  room: string;
+  status: string;
+  user: string
 
-  constructor(message: String, room: String, status: String) {
+  constructor(message: string, room: string, status: string, user: string) {
     this.message = message;
     this.room = room;
     this.status = status;
+    this.user = user
   }
 
-  setStatus(status: String) {
+
+
+  setStatus(status: string) {
     this.status = status;
   }
 }

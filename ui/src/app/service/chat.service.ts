@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {io, Socket} from 'socket.io-client'
 import {Chat} from "../model/Chat";
+import {SocketSessionInfo} from "../model/SocketSessionInfo";
 
 @Injectable({
   providedIn: 'root'
@@ -12,20 +13,20 @@ export class ChatService {
     this.socket = io('http://localhost:3000')
   }
 
-  joinRoom(room: String) {
-    this.socket.emit('joinRoom', room)
+  joinRoom(info: SocketSessionInfo) {
+    this.socket.emit('joinRoom', info)
   }
 
   sendMessage(messageComponent: Chat) {
-    this.socket.emit('message', {message: messageComponent.message, room: messageComponent.room})
+    this.socket.emit('message', {message: messageComponent.message, room: messageComponent.room, user: messageComponent.user})
   }
 
-  exit(room:string | null)
+  exit(info : SocketSessionInfo)
   {
-    this.socket.emit('leaveRoom', room);
+    this.socket.emit('leaveRoom', info);
   }
 
-  async check(room: String) {
+  async check(room: string) {
     try {
       const response = await fetch(
         "http://localhost:3000/check",
@@ -51,7 +52,7 @@ export class ChatService {
     }
   }
 
-  async createRoom(room: String) {
+  async createRoom(room: string) {
     return await fetch(
       "http://localhost:3000/create",
       {

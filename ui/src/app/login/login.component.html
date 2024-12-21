@@ -4,10 +4,10 @@
   </div>
   <div class = "form-container">
     <div class="input">
-    <label>username  </label><input type="text" placeholder="enter username">
+    <label>username  </label><input type="text" placeholder="enter username" [(ngModel)]="userName">
     </div>
     <div class="input">
-      <label>password  </label><input type="password" placeholder="enter password">
+      <label>password  </label><input type="password" placeholder="enter password" >
     </div>
     <button (click) = login()>login</button>
   </div>
